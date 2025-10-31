@@ -32,11 +32,7 @@ yarn add badword-validator
 pnpm add badword-validator
 ```
 
-## � Quick Start
-
-### JavaScript Usage
-
-## � Quick Start
+### Usage
 
 ### JavaScript
 ```javascript
@@ -55,8 +51,6 @@ const filter: BadWordFilter = new BadWordFilter();
 const result: ValidatorResult = filter.validate("Some text here");
 console.log(result); // { found: ['word'], level: 'medium' }
 ```
-
-## � API Documentation
 
 ### BadWordFilter Class
 
@@ -379,7 +373,7 @@ npm run test:coverage
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/badword-validator.git
+   git clone https://github.com/illuminationZ/badword-validator.git
    cd badword-validator
    ```
 
