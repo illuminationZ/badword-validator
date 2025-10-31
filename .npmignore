@@ -1,0 +1,62 @@
+# Source files (only publish compiled dist/)
+*.ts
+!*.d.ts
+tsconfig.json
+
+# Development files
+examples/
+tests/
+.vscode/
+.idea/
+
+# Build artifacts
+*.tsbuildinfo
+coverage/
+
+# Development tools
+jest.config.js
+.eslintrc*
+.prettier*
+
+# Version control
+.git/
+.gitignore
+
+# Dependency directories
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+
+# Development scripts
+demo.js
+validate.mjs

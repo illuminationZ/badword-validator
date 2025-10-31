@@ -1,0 +1,74 @@
+{
+  "name": "badword-validator",
+  "version": "1.0.0",
+  "description": "A flexible TypeScript/JavaScript library for detecting and sanitizing inappropriate language with customizable word lists and plugins",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./plugins/english": {
+      "import": "./dist/plugins/english.js",
+      "types": "./dist/plugins/english.d.ts"
+    },
+    "./plugins/xssProtection": {
+      "import": "./dist/plugins/xssProtection.js",
+      "types": "./dist/plugins/xssProtection.d.ts"
+    }
+  },
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "npm run clean && tsc",
+    "dev": "tsc --watch",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "clean": "rm -rf dist",
+    "lint": "echo 'No linter configured yet'",
+    "prepublishOnly": "npm run build && npm test",
+    "prepack": "npm run build"
+  },
+  "keywords": [
+    "badwords",
+    "profanity",
+    "filter",
+    "sanitize",
+    "validator",
+    "content-moderation",
+    "typescript",
+    "javascript",
+    "xss",
+    "text-processing",
+    "security",
+    "moderation",
+    "language-filter"
+  ],
+  "author": "illuminationZ",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/illuminationZ/badword-validator.git"
+  },
+  "homepage": "https://github.com/illuminationZ/badword-validator#readme",
+  "bugs": {
+    "url": "https://github.com/illuminationZ/badword-validator/issues"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^20.4.2",
+    "jest": "^30.2.0",
+    "ts-jest": "^29.4.5",
+    "typescript": "^5.1.6"
+  }
+}
