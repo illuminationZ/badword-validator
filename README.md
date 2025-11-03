@@ -1,9 +1,9 @@
 # BadWord Validator
 
-[![npm version](https://badge.fury.io/js/badword-validator.svg)](https://badge.fury.io/js/badword-validator)
+[![npm version](https://badge.fury.io/js/badword-validator.svg)](https://www.npmjs.com/package/badword-validator)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/)
-[![Node.js CI](https://github.com/yourusername/badword-validator/workflows/Node.js%20CI/badge.svg)](https://github.com/yourusername/badword-validator/actions)
+[![Node.js CI](https://github.com/illuminationZ/badword-validator/workflows/Node.js%20CI/badge.svg)](https://github.com/illuminationZ/badword-validator/actions)
 
 A flexible TypeScript/JavaScript library designed to help developers identify and sanitize inappropriate or offensive language in user-generated content. Built with modern ES modules, full TypeScript support, and an extensible plugin architecture.
 
@@ -399,7 +399,7 @@ npm run test:coverage
 
 ## 📝 Contributing
 
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+We welcome contributions! Please see our [Contributing Guide](https://github.com/illuminationZ/badword-validator/blob/main/CONTRIBUTING.md) for details.
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)
@@ -409,7 +409,7 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/illuminationZ/badword-validator/blob/main/LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
