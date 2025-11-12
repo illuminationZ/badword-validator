@@ -277,7 +277,7 @@ filter.use(contextAwarePlugin);
 
 | Environment | Support | Notes |
 |-------------|---------|-------|
-| **Node.js** | ✅ v14+ | Full ES module support |
+| **Node.js** | ✅ v18+ | Full ES module support |
 | **TypeScript** | ✅ v4+ | Complete type definitions |
 | **Browser** | ✅ Modern | ES2022+ required |
 
@@ -285,7 +285,7 @@ filter.use(contextAwarePlugin);
 
 | Environment | Support | Notes |
 |-------------|---------|-------|
-| **Node.js** | ✅ v14+ | Full ES module support |
+| **Node.js** | ✅ v18+ | Full ES module support |
 | **TypeScript** | ✅ v4+ | Complete type definitions |
 | **Browser** | ✅ Modern | ES2022+ required |
 
