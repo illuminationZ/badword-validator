@@ -15,7 +15,7 @@ A flexible TypeScript/JavaScript library designed to help developers identify an
 - 🛡️ **Sanitization & Validation**: Easily sanitize and validate text input to ensure it meets your content guidelines
 - ⚡ **Modern ES Modules**: ES2022 format with full tree-shaking support for optimal bundle sizes
 - 🎯 **Zero Dependencies**: Lightweight library with no external dependencies
-- 🧪 **Well Tested**: Comprehensive test suite with high coverage
+- 🧪 **Tested**: Test suite with unit test-case
 - 📦 **Ready for Production**: Battle-tested patterns and enterprise-ready architecture
 
 ## 📥 Installation
@@ -115,7 +115,7 @@ interface WordList {
 
 ### TypeScript Usage
 
-#### � Basic Example with Types
+#### ⚙️ Basic Example with Types
 ```typescript
 import { BadWordFilter, Plugin, ValidatorResult, WordList } from "badword-validator";
 
@@ -164,7 +164,7 @@ const filter = new BadWordFilter();
 filter.use(customPlugin);
 ```
 
-## � Advanced Usage
+## ⚒️ Advanced Usage
 
 ### Custom Word Lists
 
@@ -273,61 +273,13 @@ const filter = new BadWordFilter();
 filter.use(contextAwarePlugin);
 ```
 
-## 🌍 Framework Integration
+### 🌍 Environment Compatibility
 
-### Next.js API Routes
-
-```typescript
-// pages/api/moderate.ts
-import { NextApiRequest, NextApiResponse } from 'next';
-import { BadWordFilter } from 'badword-validator';
-
-const filter = new BadWordFilter();
-
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === 'POST') {
-    const { content } = req.body;
-    const sanitized = filter.sanitize(content);
-    const validation = filter.validate(content);
-    
-    res.json({ 
-      sanitized, 
-      validation,
-      isClean: validation.found.length === 0 
-    });
-  }
-}
-```
-
-### React Hook
-
-```typescript
-import { useState, useCallback } from 'react';
-import { BadWordFilter, ValidatorResult } from 'badword-validator';
-
-const filter = new BadWordFilter();
-
-export function useContentModeration() {
-  const [lastValidation, setLastValidation] = useState<ValidatorResult | null>(null);
-  
-  const validateContent = useCallback((text: string) => {
-    const result = filter.validate(text);
-    setLastValidation(result);
-    return result;
-  }, []);
-  
-  const sanitizeContent = useCallback((text: string) => {
-    return filter.sanitize(text);
-  }, []);
-  
-  return {
-    validateContent,
-    sanitizeContent,
-    lastValidation,
-    isClean: lastValidation?.found.length === 0
-  };
-}
-```
+| Environment | Support | Notes |
+|-------------|---------|-------|
+| **Node.js** | ✅ v14+ | Full ES module support |
+| **TypeScript** | ✅ v4+ | Complete type definitions |
+| **Browser** | ✅ Modern | ES2022+ required |
 
 ### 🌍 Environment Compatibility
 
@@ -336,24 +288,6 @@ export function useContentModeration() {
 | **Node.js** | ✅ v14+ | Full ES module support |
 | **TypeScript** | ✅ v4+ | Complete type definitions |
 | **Browser** | ✅ Modern | ES2022+ required |
-| **Webpack** | ✅ | Tree-shaking supported |
-| **Rollup** | ✅ | ES module optimization |
-| **Vite** | ✅ | Native ES module support |
-
-### 🌍 Environment Compatibility
-
-| Environment | Support | Notes |
-|-------------|---------|-------|
-| **Node.js** | ✅ v14+ | Full ES module support |
-| **TypeScript** | ✅ v4+ | Complete type definitions |
-| **Browser** | ✅ Modern | ES2022+ required |
-| **Webpack** | ✅ | Tree-shaking supported |
-| **Rollup** | ✅ | ES module optimization |
-| **Vite** | ✅ | Native ES module support |
-| **Next.js** | ✅ | SSR/SSG compatible |
-| **React** | ✅ | Works in components & hooks |
-| **Vue** | ✅ | Compatible with Vue 3 |
-| **Angular** | ✅ | Works with Angular services |
 
 ## 🧪 Testing
 
