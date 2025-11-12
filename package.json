@@ -1,6 +1,6 @@
 {
   "name": "badword-validator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A flexible TypeScript/JavaScript library for detecting and sanitizing inappropriate language with customizable word lists and plugins",
   "main": "dist/index.js",
   "module": "dist/index.js",
