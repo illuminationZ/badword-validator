@@ -91,7 +91,7 @@ jobs:
     - name: Run tests
       run: npm test
 
-    - name: Publish to npm
-      run: npm publish
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+    #- name: Publish to npm
+    #  run: npm publish
+    #  env:
+    #    NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
