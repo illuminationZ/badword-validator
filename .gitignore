@@ -175,3 +175,6 @@ demo.js
 validate.mjs
 *.demo.*
 *.example.*
+
+# checklist files
+PUBLICATION_CHECKLIST.md
