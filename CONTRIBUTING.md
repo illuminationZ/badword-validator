@@ -6,7 +6,7 @@ Thank you for your interest in contributing to BadWord Validator! We welcome con
 
 ### Prerequisites
 
-- Node.js 14.0.0 or higher
+- Node.js 18.0.0 or higher
 - npm or yarn
 - Git
 
