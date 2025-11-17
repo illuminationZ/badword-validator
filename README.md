@@ -3,7 +3,6 @@
 [![npm version](https://badge.fury.io/js/badword-validator.svg)](https://www.npmjs.com/package/badword-validator)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/)
-[![Node.js CI](https://github.com/illuminationZ/badword-validator/workflows/Node.js%20CI/badge.svg)](https://github.com/illuminationZ/badword-validator/actions)
 
 A flexible TypeScript/JavaScript library designed to help developers identify and sanitize inappropriate or offensive language in user-generated content. Built with modern ES modules, full TypeScript support, and an extensible plugin architecture.
 
@@ -281,14 +280,6 @@ filter.use(contextAwarePlugin);
 | **TypeScript** | ✅ v4+ | Complete type definitions |
 | **Browser** | ✅ Modern | ES2022+ required |
 
-### 🌍 Environment Compatibility
-
-| Environment | Support | Notes |
-|-------------|---------|-------|
-| **Node.js** | ✅ v18+ | Full ES module support |
-| **TypeScript** | ✅ v4+ | Complete type definitions |
-| **Browser** | ✅ Modern | ES2022+ required |
-
 ## 🧪 Testing
 
 Run the test suite:
@@ -357,7 +348,6 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 - **Full TypeScript support** - Complete type definitions
 - **ES Module format** - Tree-shaking friendly
 - **Comprehensive tests** - High coverage and reliability
-- **Production ready** - Battle-tested patterns
 
 ---
 
