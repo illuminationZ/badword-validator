@@ -50,4 +50,57 @@ describe("BadWord Filter", () => {
     const cleanText = filter.sanitize(dirtyText);
     expect(cleanText).toBe("This is a ****** test.");
   });
+
+  it("uses custom plugin validate method when it returns bad words", () => {
+    const customPlugin = {
+      name: "CustomValidationPlugin",
+      words: { high: ["badword"] },
+      validate: (text: string) => ({
+        found: ["badword"],
+        level: "high" as const,
+      }),
+    };
+    filter.use(customPlugin);
+    const dirtyText = "This contains badword text.";
+    const validationResult = filter.validate(dirtyText);
+    expect(validationResult.found).toContain("badword");
+    expect(validationResult.level).toBe("high");
+  });
+
+  it("does not override result when custom plugin finds no bad words", () => {
+    const customPlugin = {
+      name: "CustomValidationPlugin",
+      words: { high: ["badword"] },
+      validate: (text: string) => ({
+        found: [],
+        level: null,
+      }),
+    };
+    filter.use(customPlugin);
+
+    const dirtyText = "This contains heck text.";
+    const validationResult = filter.validate(dirtyText);
+
+    // Should use default validation, not custom
+    expect(validationResult.found).toContain("heck");
+    expect(validationResult.level).toBe("low");
+  });
+
+  it("does not override result when custom plugin has no level", () => {
+    const customPlugin = {
+      name: "CustomValidationPlugin",
+      words: { high: ["badword"] },
+      validate: (text: string) => ({
+        found: ["badword"],
+        level: null,
+      }),
+    };
+    filter.use(customPlugin);
+
+    const dirtyText = "This contains heck text.";
+    const validationResult = filter.validate(dirtyText);
+
+    // Should use default validation, not custom
+    expect(validationResult.found).toContain("heck");
+  });
 });

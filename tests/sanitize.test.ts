@@ -16,4 +16,10 @@ describe("sanitizeBadWords()", () => {
     const result = sanitizeBadWords("stupid", english, { replaceWith: "#" });
     expect(result).toBe("######");
   });
+
+  it("sanitizes only specified levels", () => {
+    const result = sanitizeBadWords("darn stupid curse1", english, { levels: ["low", "medium"] });
+    // Should replace 'darn' (low) and 'stupid' (medium) but not 'curse1' (highest)
+    expect(result).toBe("**** ****** curse1");
+  });
 });
