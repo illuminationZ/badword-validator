@@ -29,7 +29,12 @@ export class BadWordFilter {
     for (const plugin of this.activePlugins) {
       if (plugin.validate) {
         const custom = plugin.validate(text);
-        if (custom.found.length > 0) result = custom;
+        if (custom.found.length > 0 && custom.level !== null) {
+          result = {
+            found: custom.found as RegExpMatchArray,
+            level: custom.level
+          };
+        }
       }
     }
     return result;

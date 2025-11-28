@@ -1,7 +1,6 @@
-// TypeScript Example - Using badword-validator in a TypeScript project
-import { BadWordFilter } from '../index';
-import { Plugin, ValidatorResult, WordList } from '../types';
-import { xssProtection } from '../plugins/xssProtection';
+import { BadWordFilter } from '../dist/index.js';
+import type { Plugin, ValidatorResult, WordList } from '../types';
+import { xssProtection } from '../dist/plugins/xssProtection.js';
 
 // Define custom interfaces for better type safety
 interface CustomPlugin extends Plugin {
@@ -9,9 +8,10 @@ interface CustomPlugin extends Plugin {
   customMethod?: () => void;
 }
 
-interface ExtendedValidatorResult extends ValidatorResult {
+interface ExtendedValidatorResult extends Omit<ValidatorResult, 'level'> {
   timestamp: Date;
   processedBy: string;
+  level: keyof WordList | null;
 }
 
 console.log('=== TypeScript Usage with Full Type Safety ===');
@@ -44,6 +44,12 @@ const typedCustomPlugin: CustomPlugin = {
       } else if (customWordList.high?.includes(word)) {
         found.push(word);
         level = level === 'highest' ? level : 'high';
+      } else if (customWordList.medium?.includes(word)) {
+        found.push(word);
+        level = level === 'highest' || level === 'high' ? level : 'medium';
+      } else if (customWordList.low?.includes(word)) {
+        found.push(word);
+        level = level === 'highest' || level === 'high' || level === 'medium' ? level : 'low';
       }
     }
 
@@ -70,7 +76,7 @@ filter.use(typedCustomPlugin);
 // Type-safe text processing
 const testText: string = "This is a damn good shit example!";
 const sanitizedText: string = filter.sanitize(testText);
-const validationResult: ValidatorResult = filter.validate(testText);
+const validationResult = filter.validate(testText);
 
 console.log('Original text:', testText);
 console.log('Sanitized text:', sanitizedText);
@@ -80,7 +86,8 @@ console.log('Validation result:', validationResult);
 function enhancedValidation(text: string, filterInstance: BadWordFilter): ExtendedValidatorResult {
   const baseResult = filterInstance.validate(text);
   return {
-    ...baseResult,
+    found: baseResult.found,
+    level: baseResult.level as keyof WordList | null,
     timestamp: new Date(),
     processedBy: 'EnhancedValidator'
   };

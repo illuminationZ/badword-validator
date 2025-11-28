@@ -37,7 +37,7 @@ console.log('\n=== Express.js Middleware Example ===');
 // Example middleware function for Express.js
 function createBadWordMiddleware() {
   const filter = new BadWordFilter();
-  
+
   return (req, res, next) => {
     // Sanitize request body if it exists
     if (req.body) {

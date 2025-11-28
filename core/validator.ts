@@ -1,20 +1,26 @@
 import { WordList, ValidatorResult } from "../types.js";
 
 // Validate bad words in the text based on the provided word list
-export function validateBadWords(text: string, words: WordList): ValidatorResult {
+export function validateBadWords(text: string, wordList: WordList) {
   const lowerText = text.toLowerCase();
 
-  /**
-   * Find bad words in the text for each level
-   * @return ValidatorResult with found words and their level
-   */
-  for (const level of Object.keys(words) as (keyof WordList)[]) {
-    const list = words[level] ?? [];
-    const found = list.filter((w) => lowerText.includes(w.toLowerCase()));
-    if (found.length > 0) {
-      return { found, level };
+  for (const [level, words] of Object.entries(wordList)) {
+    for (const word of words) {
+      // Use word boundaries (\b) to match whole words only
+      const regex = new RegExp(`\\b${word}\\b`, "gi");
+      const matches = lowerText.match(regex);
+
+      if (matches) {
+        return {
+          found: matches,
+          level: level,
+        };
+      }
     }
   }
 
-  return { found: [], level: null };
+  return {
+    found: [],
+    level: null,
+  };
 }
